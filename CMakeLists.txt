@@ -9,11 +9,11 @@ set(CMAKE_CXX_COMPILER "aarch64-linux-gnu-g++")
 
 # ---- Project ----
 
-project(genericFactory LANGUAGES C)
+project(GF LANGUAGES C)
 
 # ---- Create executable ----
 set(CMAKE_BUILD_TYPE "Debug")
-set(CMAKE_C_FLAGS_DEBUG "$ENV{CMAKE_CXX_FLAGS} -O0 -Wall -g")
+set(CMAKE_C_FLAGS_DEBUG "$ENV{CMAKE_CXX_FLAGS} -O0 -Wall -g -Wno-pointer-sign -Wno-unused-function -Wno-unused-variable")
 
 # ---- Arch executable ----
 set(ARCH "arm64")
@@ -42,8 +42,11 @@ target_include_directories(
             $<INSTALL_INTERFACE:include/gf-${PROJECT_VERSION}>
 )
 
-add_executable(run ${sources})
+# create executable program
+# add_executable(main ${sources})
+
 # link to your dependencies' targets here
-target_link_libraries(run gf)
+# target_link_libraries(main gf)
+
 # setup your target's properties
-set_target_properties(run PROPERTIES C_STANDARD 11)
+# set_target_properties(main PROPERTIES C_STANDARD 11)
