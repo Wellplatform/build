@@ -20,7 +20,19 @@ set(ARCH "arm64")
 
 # ---- CONFIG_* ----
 add_definitions(-D__KERNEL__="1")
-
+add_definitions(-DCONFIG_OF=1)
+add_definitions(-DCONFIG_OF_ADDRESS=1)
+add_definitions(-DCONFIG_OF_KOBJ=1)
+add_definitions(-DCONFIG_OF_DYNAMIC=1)
+add_definitions(-DCONFIG_OF_FLATTREE=1)
+add_definitions(-DCONFIG_OF_GPIO=1)
+add_definitions(-DCONFIG_OF_IOMMU=1)
+add_definitions(-DCONFIG_OF_IRQ=1)
+add_definitions(-DCONFIG_OF_MDIO=1)
+add_definitions(-DCONFIG_OF_RESERVED_MEM=1)
+add_definitions(-DCONFIG_OF_OVERLAY=1)
+add_definitions(-DCONFIG_OF_NUMA=1)
+add_definitions(-DCONFIG_OF_RESOLVE=1)
 
 # add your source files here
 
