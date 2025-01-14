@@ -13,7 +13,7 @@ project(GF LANGUAGES C)
 
 # ---- Create executable ----
 set(CMAKE_BUILD_TYPE "Debug")
-set(CMAKE_C_FLAGS_DEBUG "$ENV{CMAKE_CXX_FLAGS} -O0 -Wall -g -Wno-pointer-sign -Wno-unused-function -Wno-unused-variable")
+set(CMAKE_C_FLAGS_DEBUG "$ENV{CMAKE_CXX_FLAGS} -O0 -Wall -g -Wno-pointer-sign -Wno-unused-function -Wno-unused-variable -Wno-unused-but-set-variable")
 
 # ---- Arch executable ----
 set(ARCH "arm64")
@@ -34,6 +34,10 @@ add_definitions(-DCONFIG_OF_OVERLAY=1)
 add_definitions(-DCONFIG_OF_NUMA=1)
 add_definitions(-DCONFIG_OF_RESOLVE=1)
 add_definitions(-DCONFIG_IRQ_DOMAIN=1)
+add_definitions(-DCONFIG_SATA_PMP=1)
+add_definitions(-DCONFIG_SATA_HOST=1)
+add_definitions(-DCONFIG_ATA=1)
+
 # add your source files here
 
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../kernel/src/*.c"
