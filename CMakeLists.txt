@@ -33,12 +33,13 @@ add_definitions(-DCONFIG_OF_RESERVED_MEM=1)
 add_definitions(-DCONFIG_OF_OVERLAY=1)
 add_definitions(-DCONFIG_OF_NUMA=1)
 add_definitions(-DCONFIG_OF_RESOLVE=1)
-
+add_definitions(-DCONFIG_IRQ_DOMAIN=1)
 # add your source files here
 
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../kernel/src/*.c"
                                             "${CMAKE_CURRENT_SOURCE_DIR}/../lib/src/*.c")
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../kernel/include/*.h")
+file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../kernel/src/driver/common/include/*.h")
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../kernel/src/*.h")
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../lib/include/*.h")
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../lib/src/*.h")
@@ -50,6 +51,7 @@ target_include_directories(
             $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/../lib/arch/${ARCH}/include>
             $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/../kernel/include>
             $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/../kernel/include/linux>
+            $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/../kernel/src/driver/common/include>
             $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/../kernel/arch/${ARCH}/include>
             $<INSTALL_INTERFACE:include/gf-${PROJECT_VERSION}>
 )
