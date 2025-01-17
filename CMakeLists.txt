@@ -13,30 +13,13 @@ project(GF LANGUAGES C)
 
 # ---- Create executable ----
 set(CMAKE_BUILD_TYPE "Debug")
-set(CMAKE_C_FLAGS_DEBUG "$ENV{CMAKE_CXX_FLAGS} -O0 -Wall -g -Wno-pointer-sign -Wno-unused-function -Wno-unused-variable -Wno-unused-but-set-variable")
+set(CMAKE_C_FLAGS_DEBUG "$ENV{CMAKE_CXX_FLAGS} -O0 -Wall -g -Wno-pointer-sign -Wno-unused-function -Wno-unused-variable -Wno-unused-but-set-variable -Wno-unused-value -Wno-overflow")
 
 # ---- Arch executable ----
 set(ARCH "arm64")
 
 # ---- CONFIG_* ----
 add_definitions(-D__KERNEL__="1")
-add_definitions(-DCONFIG_OF=1)
-add_definitions(-DCONFIG_OF_ADDRESS=1)
-add_definitions(-DCONFIG_OF_KOBJ=1)
-add_definitions(-DCONFIG_OF_DYNAMIC=1)
-add_definitions(-DCONFIG_OF_FLATTREE=1)
-add_definitions(-DCONFIG_OF_GPIO=1)
-add_definitions(-DCONFIG_OF_IOMMU=1)
-add_definitions(-DCONFIG_OF_IRQ=1)
-add_definitions(-DCONFIG_OF_MDIO=1)
-add_definitions(-DCONFIG_OF_RESERVED_MEM=1)
-add_definitions(-DCONFIG_OF_OVERLAY=1)
-add_definitions(-DCONFIG_OF_NUMA=1)
-add_definitions(-DCONFIG_OF_RESOLVE=1)
-add_definitions(-DCONFIG_IRQ_DOMAIN=1)
-add_definitions(-DCONFIG_SATA_PMP=1)
-add_definitions(-DCONFIG_SATA_HOST=1)
-add_definitions(-DCONFIG_ATA=1)
 
 # add your source files here
 
